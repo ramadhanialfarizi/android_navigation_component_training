@@ -36,9 +36,13 @@ class DetailCategoryFragment : Fragment() {
     @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        // Get Data from previous page Using Bundle
+//        val dataName = arguments?.getString(CategoryFragment.EXTRA_NAME)
+//        val dataDescription = arguments?.getLong(CategoryFragment.EXTRA_STOCK)
 
-        val dataName = arguments?.getString(CategoryFragment.EXTRA_NAME)
-        val dataDescription = arguments?.getLong(CategoryFragment.EXTRA_STOCK)
+        // Get Data from previous page Using SafeArg
+        val dataName = DetailCategoryFragmentArgs.fromBundle(arguments as Bundle).name
+        val dataDescription = DetailCategoryFragmentArgs.fromBundle(arguments as Bundle).stock
 
         binding.tvCategoryName.text = dataName
         binding.tvCategoryDescription.text = "Stock : $dataDescription"
